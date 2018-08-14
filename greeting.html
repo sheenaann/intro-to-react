@@ -11,17 +11,30 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 <script type="text/babel">
 class HelloPerson extends React.Component {
+  constructor(props){
+  super(props);
+  this.state = {
+    faveAnimal: "Turtle"
+  }
+}
   render() {
     return (
       <div>
-        Hello {this.props.firstName}
+        <h2>Hello {this.props.firstName}.</h2>
+        <p>Your favorite animal is a {this.state.faveAnimal}.</p>
+        <p>Your current job title is {this.props.title}</p>
       </div>
     );
   }
 }
 
+HelloPerson.defaultProps = {
+  title: "Marketing Operations Manager"
+}
+
 ReactDOM.render(
-  <HelloPerson firstName="Sheena"/>, document.getElementById('greeting')
+  <HelloPerson
+  firstName="Sheena"/>, document.getElementById('greeting')
 );
 
 </script>
